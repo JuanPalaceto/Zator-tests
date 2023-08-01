@@ -270,7 +270,7 @@ section {
         padding: 15px;
     }
     & .swiper {
-        height: 900px;
+        height: 500px;
     }
     & .swiper-slide {
         align-items: center;
@@ -279,7 +279,9 @@ section {
         background-size: cover;
         display: flex;
         justify-content: center;
+        max-width: 657px;
         overflow-x: hidden;
+        width: 50vw;
         & a {
             text-decoration: none;
         }
@@ -621,6 +623,16 @@ footer {
         }
         & i {
             padding-left: 0;
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    .services {
+        & .swiper {
+            height: 900px;
+        }
+        & .swiper-slide {
+            width: 100%;
         }
     }
 }

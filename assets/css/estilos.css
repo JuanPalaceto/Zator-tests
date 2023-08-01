@@ -263,7 +263,7 @@ section {
   padding: 15px;
 }
 .services .swiper {
-  height: 900px;
+  height: 500px;
 }
 .services .swiper-slide {
   align-items: center;
@@ -272,7 +272,9 @@ section {
   background-size: cover;
   display: flex;
   justify-content: center;
+  max-width: 657px;
   overflow-x: hidden;
+  width: 50vw;
 }
 .services .swiper-slide a {
   text-decoration: none;
@@ -617,6 +619,14 @@ footer {
   }
   .copyright i {
     padding-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .services .swiper {
+    height: 900px;
+  }
+  .services .swiper-slide {
+    width: 100%;
   }
 }
 @media (max-width: 991px) {
