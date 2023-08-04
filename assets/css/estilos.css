@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i");
 @font-face {
   font-family: "Cambridge Serial";
@@ -47,19 +48,117 @@
   }
 }
 /*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
+# Disable aos animation delay on mobile devices y AOS
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
+[data-aos=zoom-imagen] {
+  animation: zoom-imagen 4s ease-in;
+}
+
 /*--------------------------------------------------------------
 # Body y elementos generales
 --------------------------------------------------------------*/
 body {
   font-family: "Outer Sans", sans-serif;
   font-weight: normal;
+}
+
+.banner {
+  background-color: #000;
+  height: auto;
+  padding-bottom: 60px;
+}
+.banner .bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+}
+.banner .bg-image::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.banner .bg-image img {
+  bottom: -15%;
+  left: 10%;
+  max-width: 150px;
+  position: absolute;
+  width: 15vw;
+  z-index: 2;
+}
+.banner-info {
+  color: #fff;
+  display: grid;
+  grid-template-areas: "titulo titulo img" "desc desc img" "btn btn btn";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  overflow-x: hidden;
+  padding-top: 100px;
+  text-align: left;
+}
+.banner-info .title {
+  align-items: end;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  grid-area: titulo;
+  justify-content: left;
+  padding-right: 2rem;
+}
+.banner-info h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+}
+.banner-info i {
+  font-size: 4rem;
+}
+.banner-info p {
+  grid-area: desc;
+  margin-bottom: 0;
+  max-width: 650px;
+  padding-right: 2rem;
+  padding-top: 2rem;
+}
+.banner-info-img {
+  grid-area: img;
+  overflow: hidden;
+}
+.banner-info-img img {
+  height: 100%;
+  min-height: 166px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.banner-info div:last-child {
+  grid-area: btn;
+  padding-top: 3rem;
+}
+.banner-info div:last-child #btn-contacto {
+  background-color: #db1c1e;
+  border: 2px solid #db1c1e;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in;
+}
+.banner-info div:last-child #btn-contacto:hover {
+  background-color: #b40f11;
+  border: 2px solid #b40f11;
 }
 
 section {
@@ -257,7 +356,7 @@ section {
 --------------------------------------------------------------*/
 .services {
   background-color: #000;
-  padding-top: 90px;
+  padding-top: 110px;
 }
 .services .container {
   padding: 15px;
@@ -439,6 +538,9 @@ footer {
   font-size: 14px;
   padding: 45px 0;
 }
+footer .logo img {
+  min-width: 75px;
+}
 
 .footer-info p {
   color: #fff;
@@ -567,6 +669,163 @@ footer {
 }
 
 /*--------------------------------------------------------------
+# PÁGINA DE CONTACTO
+--------------------------------------------------------------*/
+.main-contacto {
+  background-color: #000;
+}
+
+.contacto {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-areas: "hablemos" "form" "visitanos";
+  padding-top: 8rem;
+}
+.contacto-hablemos {
+  grid-area: hablemos;
+  margin-top: 3rem;
+}
+.contacto-form {
+  grid-area: form;
+}
+.contacto-visitanos {
+  grid-area: visitanos;
+}
+.contacto a {
+  text-decoration: none;
+}
+
+.contacto-hablemos-texto p:last-child {
+  color: #fff;
+  line-height: 2rem;
+}
+
+.contacto-hablemos-botones {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 600;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+.contacto-hablemos-botones span {
+  font-size: 0.8rem;
+}
+.contacto-hablemos-botones p {
+  margin: 0;
+}
+.contacto-hablemos-botones a:first-child {
+  background-color: #db1c1e;
+  border: 2px solid #db1c1e;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in;
+}
+.contacto-hablemos-botones a:first-child:hover {
+  background-color: #b40f11;
+  border: 2px solid #b40f11;
+}
+.contacto-hablemos-botones a:last-child {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in;
+  border-color: #fff;
+}
+.contacto-hablemos-botones a:last-child:hover {
+  background-color: #fff;
+  border: 2px solid #fff;
+}
+.contacto-hablemos-botones a:last-child:hover {
+  color: #000;
+}
+.contacto-hablemos-botones a:last-child span {
+  color: #8a8a8a;
+}
+
+.contacto-visitanos p {
+  color: #a8a8a8;
+  padding-left: 1.5rem;
+  margin: 0;
+  line-height: 1.75rem;
+}
+.contacto-visitanos p:first-child {
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+.contacto-visitanos p:first-child::before {
+  content: "\f285";
+  font-family: "bootstrap-icons";
+  font-size: 0.8rem;
+  left: 0;
+  position: absolute;
+  top: 2px;
+}
+.contacto-visitanos iframe {
+  margin-top: 2rem;
+  height: 300px;
+}
+
+.contacto-form {
+  background-color: #fff;
+  padding: 3rem 2.5rem;
+}
+.contacto-form h3 {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.contacto-form p {
+  line-height: 2rem;
+}
+.contacto-form form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.contacto-form form label::after {
+  color: #ff0000;
+  content: " *";
+}
+.contacto-form form textarea {
+  margin-bottom: 1.5rem;
+  resize: none;
+}
+.contacto-form form button {
+  background-color: #db1c1e;
+  border: 2px solid #db1c1e;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in;
+}
+.contacto-form form button:hover {
+  background-color: #b40f11;
+  border: 2px solid #b40f11;
+}
+
+@media screen and (min-width: 991px) {
+  .contacto {
+    grid-gap: 5rem;
+    grid-template-areas: "hablemos form" "visitanos form";
+    row-gap: 0;
+  }
+  .contacto-hablemos {
+    margin: 0;
+  }
+  .contacto-visitanos iframe {
+    height: 350px;
+  }
+}
+/*--------------------------------------------------------------
 # Keyframes
 --------------------------------------------------------------*/
 @keyframes pulsate-btn {
@@ -577,6 +836,14 @@ footer {
   100% {
     transform: scale(1, 1);
     opacity: 0;
+  }
+}
+@keyframes zoom-imagen {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 /*--------------------------------------------------------------
@@ -627,6 +894,36 @@ footer {
   }
   .services .swiper-slide {
     width: 100%;
+  }
+  .banner .bg-image {
+    height: 300px;
+  }
+  .banner .bg-image img {
+    bottom: -10%;
+    left: 50%;
+    max-width: 125px;
+    min-width: 75px;
+    transform: translateX(-50%);
+    width: 25vw;
+  }
+  .banner-info {
+    grid-template-areas: "titulo" "desc" "img" "btn";
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 75px;
+  }
+  .banner-info .title {
+    align-items: center;
+    flex-direction: column;
+    padding-right: 0;
+    gap: 2.5rem;
+  }
+  .banner-info p {
+    padding-right: 0;
+    padding-top: 1rem;
+  }
+  .banner-info-img {
+    padding-top: 2rem;
   }
 }
 @media (max-width: 991px) {

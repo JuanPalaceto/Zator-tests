@@ -265,3 +265,9 @@
 //   event.stopPropagation();
 //   return false;
 // });
+
+// botón de contacto de whatsapp
+const boton_whatsapp = document.getElementById("btn-contacto");
+boton_whatsapp.onclick = function() {
+  window.open("https://wa.me/528341890501", "_blank");
+};

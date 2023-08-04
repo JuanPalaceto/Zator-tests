@@ -13,3 +13,11 @@
         border: 2px solid $hover-color;
     }
 }
+
+@mixin btn-mixin-neon ($color: $secondary-color, $background: $rojo-zator){
+    @include btn-mixin(transparent, $background);
+    border-color: $background;
+    &:hover {
+        color: $color;
+    }
+}
