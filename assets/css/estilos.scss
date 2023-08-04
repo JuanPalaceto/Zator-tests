@@ -655,9 +655,16 @@ footer {
     }
 }
 /*--------------------------------------------------------------
-# PÁGINA DE CONTACTO
+# PANTALLA DE CONTACTO
 --------------------------------------------------------------*/
 @import "contacto";
+/*--------------------------------------------------------------
+# PANTALLA DE DISEÑO
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# PANTALLA DE INFONAVIT
+--------------------------------------------------------------*/
+@import "../../construccion-terreno-infonavit/assets/css/style";
 /*--------------------------------------------------------------
 # Keyframes
 --------------------------------------------------------------*/
@@ -778,51 +785,6 @@ footer {
             }
         }
     }
-    //         & .title {
-    //             align-items: end;
-    //             display: flex;
-    //             flex-direction: row-reverse;
-    //             gap: 1rem;
-    //             grid-area: titulo;
-    //             justify-content: left;
-    //             padding-right: 2rem;
-    //         }
-    //         & h1 {
-    //             font-weight: 700;
-    //             margin-bottom: 0;
-    //             // padding-bottom: 50px;
-    //             padding-bottom: 3px;
-    //             text-transform: uppercase;
-    //         }
-    //         & i {
-    //             font-size: 4rem;
-    //         }
-    //         & p {
-    //             grid-area: desc;
-    //             margin-bottom: 0;
-    //             max-width: 650px;
-    //             padding-right: 2rem;
-    //         }
-    //         &-img {
-    //             grid-area: img;
-    //             overflow: hidden;
-    //             & img {
-    //                 animation: zoomIn 10s;
-    //                 // grid-area: img;
-    //                 height: 100%;
-    //                 min-height: 166px;
-    //                 object-fit: cover;
-    //                 width: 100%;
-    //             }
-    //         }
-    //         & div:last-child {
-    //             grid-area: btn;
-    //             & #btn-contacto {
-    //                 @include btn-mixin();
-    //             }
-    //         }
-    //     }
-    // }
 }
 @media (max-width: 991px) {
     // Nav en mobile
