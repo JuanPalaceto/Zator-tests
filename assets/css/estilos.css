@@ -10,8 +10,8 @@
   src: url("../fonts/made_outer_sans/MADE Outer Sans Bold PERSONAL USE.otf") format("opentype");
   src: url("../fonts/made_outer_sans/MADE Outer Sans Black PERSONAL USE.otf") format("opentype");
   src: url("../fonts/made_outer_sans/MADE Outer Sans Light PERSONAL USE.otf") format("opentype");
-  src: url("../fonts/made_outer_sans/MADE Outer Sans Regular PERSONAL USE.otf PERSONAL USE.otf") format("opentype");
-  src: url("../fonts/made_outer_sans/MADE Outer Sans Thin PERSONAL USE.otf PERSONAL USE.otf") format("opentype");
+  src: url("../fonts/made_outer_sans/MADE Outer Sans Regular PERSONAL USE.otf") format("opentype");
+  src: url("../fonts/made_outer_sans/MADE Outer Sans Thin PERSONAL USE.otf") format("opentype");
 }
 /*--------------------------------------------------------------
 # Preloader
@@ -828,6 +828,30 @@ footer .logo img {
 /*--------------------------------------------------------------
 # PANTALLA DE DISEÑO
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Aprende con nosotros
+--------------------------------------------------------------*/
+.aprende .container {
+  padding: 15px;
+}
+
+/*--------------------------------------------------------------
+# Nuestros proyectos
+--------------------------------------------------------------*/
+.proyectos {
+  background-color: #000;
+}
+.proyectos .container {
+  padding: 15px;
+}
+
+/*--------------------------------------------------------------
+# Nuestras obras
+--------------------------------------------------------------*/
+.obras .container {
+  padding: 15px;
+}
+
 /*--------------------------------------------------------------
 # PANTALLA DE INFONAVIT
 --------------------------------------------------------------*/

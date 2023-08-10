@@ -15,8 +15,8 @@
     src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Bold\ PERSONAL\ USE.otf") format("opentype");
     src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Black\ PERSONAL\ USE.otf") format("opentype");
     src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Light\ PERSONAL\ USE.otf") format("opentype");
-    src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Regular\ PERSONAL\ USE.otf\ PERSONAL\ USE.otf") format("opentype");
-    src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Thin\ PERSONAL\ USE.otf\ PERSONAL\ USE.otf") format("opentype");
+    src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Regular\ PERSONAL\ USE.otf") format("opentype");
+    src: url("../fonts/made_outer_sans/MADE\ Outer\ Sans\ Thin\ PERSONAL\ USE.otf") format("opentype");
 }
 
 /*--------------------------------------------------------------
@@ -661,6 +661,7 @@ footer {
 /*--------------------------------------------------------------
 # PANTALLA DE DISEÑO
 --------------------------------------------------------------*/
+@import "../../diseno-residencial/assets/css/style";
 /*--------------------------------------------------------------
 # PANTALLA DE INFONAVIT
 --------------------------------------------------------------*/
