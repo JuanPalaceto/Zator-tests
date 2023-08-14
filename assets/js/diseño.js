@@ -31,12 +31,12 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '/assets/img/bg/bg-navbar.jpg',
+                srcset: '../assets/img/bg/bg-navbar.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
             {
-                src: '/assets/img/bg/bg-servicio-diseno.jpg'
+                src: '../assets/img/bg/bg-servicio-diseno.jpg'
             }
         ],
         // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
@@ -53,12 +53,12 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '/assets/img/bg/bg-navbar.jpg',
+                srcset: '../assets/img/bg/bg-navbar.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
             {
-                src: '/assets/img/bg/bg-servicio-diseno.jpg'
+                src: '../assets/img/bg/bg-servicio-diseno.jpg'
             }
         ],
         // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
@@ -75,56 +75,12 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '/assets/img/bg/bg-navbar.jpg',
+                srcset: '../assets/img/bg/bg-navbar.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
             {
-                src: '/assets/img/bg/bg-servicio-diseno.jpg'
-            }
-        ],
-        // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
-    },
-    {
-        name: 'Tipos de cimentación',
-        description: 'Desc de prueba',
-        duration: 147,           
-        sources: [
-            {
-                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4', 
-                type: 'video/youtube'
-            }
-        ],
-        thumbnail: [
-            {
-                srcset: '/assets/img/bg/bg-navbar.jpg',
-                type: 'image/jpeg',
-                media: '(min-width: 400px;)'
-            },
-            {
-                src: '/assets/img/bg/bg-servicio-diseno.jpg'
-            }
-        ],
-        // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
-    },
-    {
-        name: 'Tipos de cimentación',
-        description: 'Desc de prueba',
-        duration: 147,           
-        sources: [
-            {
-                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4', 
-                type: 'video/youtube'
-            }
-        ],
-        thumbnail: [
-            {
-                srcset: '/assets/img/bg/bg-navbar.jpg',
-                type: 'image/jpeg',
-                media: '(min-width: 400px;)'
-            },
-            {
-                src: '/assets/img/bg/bg-servicio-diseno.jpg'
+                src: '../assets/img/bg/bg-servicio-diseno.jpg'
             }
         ],
         // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
