@@ -70,6 +70,9 @@ body {
     font-family: "Outer Sans", sans-serif;
     font-weight: normal;
 }
+.justified-text {
+    text-align: justify;
+}
 .banner {
     background-color: $primary-color;
     height: auto;
@@ -164,6 +167,7 @@ section {
 .section-title,
 .section-title-alt {
     padding-bottom: 40px;
+    text-align: center;
     & h2 {
         color: $third-color;
         font-family: "Poppins", sans-serif;
@@ -174,13 +178,14 @@ section {
         line-height: 1px;
         padding: 0;
         text-transform: uppercase;
-        &::after {
+        &::after, &::before {
             background: $bg-color-alt;
             content: "";
             display: inline-block;
             height: 1px;
             margin: 4px 10px;
-            width: 120px;
+            width: 10vw;
+            max-width: 100px;
         }
     }
     & p {
@@ -192,7 +197,7 @@ section {
         text-transform: uppercase;
     }
     &-alt {
-        & h2::after {
+        & h2::after, h2::before {
             background-color: $bg-color;
         }
         & p {

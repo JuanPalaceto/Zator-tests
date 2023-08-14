@@ -67,6 +67,10 @@ body {
   font-weight: normal;
 }
 
+.justified-text {
+  text-align: justify;
+}
+
 .banner {
   background-color: #000;
   height: auto;
@@ -169,6 +173,7 @@ section {
 .section-title,
 .section-title-alt {
   padding-bottom: 40px;
+  text-align: center;
 }
 .section-title h2,
 .section-title-alt h2 {
@@ -182,14 +187,16 @@ section {
   padding: 0;
   text-transform: uppercase;
 }
-.section-title h2::after,
-.section-title-alt h2::after {
+.section-title h2::after, .section-title h2::before,
+.section-title-alt h2::after,
+.section-title-alt h2::before {
   background: #fff;
   content: "";
   display: inline-block;
   height: 1px;
   margin: 4px 10px;
-  width: 120px;
+  width: 10vw;
+  max-width: 100px;
 }
 .section-title p,
 .section-title-alt p {
@@ -200,8 +207,9 @@ section {
   margin: 0;
   text-transform: uppercase;
 }
-.section-title-alt h2::after,
-.section-title-alt-alt h2::after {
+.section-title-alt h2::after, .section-title-alt h2::before,
+.section-title-alt-alt h2::after,
+.section-title-alt-alt h2::before {
   background-color: #000;
 }
 .section-title-alt p,
