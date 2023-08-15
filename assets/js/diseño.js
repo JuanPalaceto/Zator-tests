@@ -94,7 +94,7 @@ Player.playlist([
         duration: 147,           
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4', 
+                src: 'https://www.youtube.com/watch?v=vKrevcUro_Y', 
                 type: 'video/youtube'
             }
         ],
