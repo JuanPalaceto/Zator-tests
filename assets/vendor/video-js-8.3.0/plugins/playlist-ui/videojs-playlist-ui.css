@@ -1,3 +1,8 @@
+/* Esto es de videojs main */
+.vjs-loading-spinner {
+    display: none !important;
+}
+/* Esto es del ui */
 .player-container {
     display: flex;
     gap: 15px;
@@ -7,13 +12,27 @@
     height: 100%;
     width: 100%;
 }
+.vjs-playlist-title {
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+.vjs-playlist-title::after {
+    background: #000;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    margin: 4px 10px;
+    width: 10vw;
+    max-width: 50px;
+}
 .vjs-playlist{
     padding:0;
     background-color:#1a1a1a;
     color:#fff;
     list-style-type:none;
-    max-width: 300px;
-    width: 35vw;
+    max-width: 350px;
+    min-width: 250px;
+    width: 25vw;
 }
 .vjs-playlist img{
     display:block
@@ -23,7 +42,6 @@
     margin:0;
     padding:0;
     list-style:none;
-    max-height: 200px;
 }
 .vjs-playlist .vjs-playlist-item{
     position:relative;
@@ -101,13 +119,14 @@
 }
 .vjs-playlist-vertical{
     overflow-x:hidden;
-    overflow-y:auto
+    overflow-y:auto;
+    height: calc(100% - 32px);
 }
 .vjs-playlist-vertical img{
     width:100%;
     min-height:54px
 }
-.vjs-playlist-vertical .vjs-playlist-item{
+.vjs-playlist-vertical .vjs-playlist-item:not(:nth-last-child(2)){
     margin-bottom:5px
 }
 .vjs-playlist-vertical .vjs-playlist-thumbnail{
@@ -132,7 +151,9 @@
 .vjs-playlist-horizontal .vjs-playlist-item{
     display:inline-block;
     height:100%;
-    margin-right:5px
+}
+.vjs-playlist-horizontal .vjs-playlist-item:not(:nth-last-child(2)){
+    margin-right:5px;
 }
 .vjs-playlist-horizontal .vjs-playlist-thumbnail{
     display:block;
@@ -168,6 +189,11 @@
 .vjs-mouse.vjs-playlist .vjs-playlist-description{
     height:30px;
     line-height:23px
+}
+@media(min-width: 768px){
+    .vjs-playlist .vjs-playlist-item-list{
+        height: 200px;
+    }
 }
 @media(min-width: 600px){
     .vjs-mouse.vjs-playlist{

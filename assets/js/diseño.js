@@ -1,9 +1,10 @@
+// APRENDE CON NOSOTROS
 const Player = videojs("my-video", { 
     "controls": true,
     // controlBar: {
     //     pictureInPictureToggle: false,
     // },
-    "preload": "none" ,
+    "preload": "none",
     //"poster": "http://vjs.zencdn.net/v/oceans.png",
     "fluid": true,
     "language": "es",
@@ -20,6 +21,29 @@ Player.controlBar.hide();
 
 Player.playlist([
     {
+        name: 'Evita estos errores',
+        description: 'Desc de prueba',
+        duration: 353,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=uEWM7oGaZ4w', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                // srcset: '../assets/img/bg/bg-navbar.jpg',
+                src: 'https://img.youtube.com/vi/uEWM7oGaZ4w/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+            // {
+            //     src: '../assets/img/bg/bg-servicio-diseno.jpg'
+            // }
+        ],
+        // poster: 'https://img.youtube.com/vi/Wikz02b3mqY/maxresdefault.jpg'
+    },
+    {
         name: 'No gastes de más',
         description: 'Desc de prueba',
         duration: 171,           
@@ -31,15 +55,16 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '../assets/img/bg/bg-navbar.jpg',
+                // srcset: '../assets/img/bg/bg-navbar.jpg',
+                src: 'https://img.youtube.com/vi/Wikz02b3mqY/maxresdefault.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
-            {
-                src: '../assets/img/bg/bg-servicio-diseno.jpg'
-            }
+            // {
+            //     src: '../assets/img/bg/bg-servicio-diseno.jpg'
+            // }
         ],
-        // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
+        // poster: 'https://img.youtube.com/vi/Wikz02b3mqY/maxresdefault.jpg'
     },
     {
         name: 'Ahorra en tu cimentación',
@@ -53,13 +78,13 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '../assets/img/bg/bg-navbar.jpg',
+                src: 'https://img.youtube.com/vi/TKo8igacFUY/maxresdefault.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
-            {
-                src: '../assets/img/bg/bg-servicio-diseno.jpg'
-            }
+            // {
+            //     src: '../assets/img/bg/bg-servicio-diseno.jpg'
+            // }
         ],
         // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
     },
@@ -75,13 +100,13 @@ Player.playlist([
         ],
         thumbnail: [
             {
-                srcset: '../assets/img/bg/bg-navbar.jpg',
+                src: 'https://img.youtube.com/vi/G6HXi5g0ip4/maxresdefault.jpg',
                 type: 'image/jpeg',
                 media: '(min-width: 400px;)'
             },
-            {
-                src: '../assets/img/bg/bg-servicio-diseno.jpg'
-            }
+            // {
+            //     src: '../assets/img/bg/bg-servicio-diseno.jpg'
+            // }
         ],
         // poster: 'http://media.w3.org/2010/05/sintel/poster.png'
     }

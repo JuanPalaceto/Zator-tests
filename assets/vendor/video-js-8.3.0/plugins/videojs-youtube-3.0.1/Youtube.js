@@ -420,7 +420,7 @@ THE SOFTWARE. */
         if (this.url.videoId) {
           // Set the low resolution first
           this.poster_ = 'https://img.youtube.com/vi/' + this.url.videoId + '/0.jpg';
-          this.trigger('posterchange');
+          // this.trigger('posterchange');
 
           // Check if their is a high res
           this.checkHighResPoster();
