@@ -71,6 +71,105 @@ body {
   text-align: justify;
 }
 
+.hover-gallery .gallery-item-container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.hover-gallery .gallery-item-container::after {
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+.hover-gallery img {
+  width: 100%;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.hover-gallery .gallery-item-info {
+  background-color: #fff;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.hover-gallery .gallery-item-info h4 {
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.75rem 0;
+  text-transform: uppercase;
+}
+.hover-gallery .gallery-item-info a {
+  background-color: #000;
+  border: 2px solid #000;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0.75rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.hover-gallery .gallery-item-info a:hover {
+  background-color: #1e1e1e;
+  border: 2px solid #1e1e1e;
+}
+.hover-gallery:hover .gallery-item-container::after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.hover-gallery:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-modal {
+  padding: 0 !important;
+}
+.gallery-modal .gallery-item-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+}
+.gallery-modal .gallery-item-banner::after {
+  background-color: rgba(0, 0, 0, 0.6);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.gallery-modal .gallery-item-banner-img {
+  border: 10px solid #fff;
+  left: 50%;
+  position: relative;
+  top: 75%;
+  transform: translate(-50%, -75%);
+  width: 45%;
+  z-index: 2;
+}
+.gallery-modal .gallery-item-info {
+  padding: 2rem 5rem;
+}
+.gallery-modal .gallery-item-info h2 {
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .banner {
   background-color: #000;
   height: auto;

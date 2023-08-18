@@ -70,8 +70,104 @@ body {
     font-family: "Outer Sans", sans-serif;
     font-weight: normal;
 }
+// Justificar textos
 .justified-text {
     text-align: justify;
+}
+// Efecto sobre elementos de la galería
+.hover-gallery {
+    & .gallery-item-container {
+        display: block;
+        // height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        &::after {
+            content: "";
+            display: block;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: all 0.3s ease-in-out;
+            width: 100%; 
+        }
+    }
+    & img {
+        width: 100%;
+        -webkit-transform: scale(1);
+	    transform: scale(1);
+	    -webkit-transition: all 0.3s ease-in-out;
+	    transition: all 0.3s ease-in-out;
+        user-select: none;
+    }
+    & .gallery-item-info {
+        background-color: $secondary-color;
+        padding: 0 1.5rem;
+        text-align: center;
+        & h4 {
+            color: $primary-color;
+            font-family: "Poppins", sans-serif; 
+            font-weight: 700;
+            margin: 0;
+            padding: 0.75rem 0;
+            text-transform: uppercase;
+        }
+        & a {
+            @include btn-mixin($primary-color, #1e1e1e);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin: 0.75rem 0;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+    &:hover {
+        & .gallery-item-container::after {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        & img {
+            -webkit-transform: scale(1.1);
+	        transform: scale(1.1);
+        }
+    }
+}
+// Modal de la galería
+.gallery-modal {
+    padding: 0 !important;
+    .gallery-item-banner {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        position: relative;
+        &::after {
+            background-color: rgba(0,0,0,0.6);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        &-img {
+            border: 10px solid $secondary-color;
+            // max-height: 70%;
+            left: 50%;
+            position: relative;
+            top: 75%;
+            transform: translate(-50%, -75%);
+            width: 45%;
+            z-index: 2;
+        }
+    }
+    .gallery-item-info {
+        padding: 2rem 5rem;
+        & h2 {
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
 }
 .banner {
     background-color: $primary-color;

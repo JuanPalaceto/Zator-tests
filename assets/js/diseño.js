@@ -94,7 +94,7 @@ Player.playlist([
         duration: 147,           
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=vKrevcUro_Y', 
+                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4', 
                 type: 'video/youtube'
             }
         ],
@@ -121,20 +121,414 @@ Player.playlistUi();
 // chance y después
 // Player.playlist.autoadvance(0);
 
+// APRENDE CON NOSOTROS
+const Player2 = videojs("my-video-2", { 
+    "controls": true,
+    "preload": "none",
+    "fluid": true,
+    "language": "es",
+    "youtube": {
+        "ytControls": 2,
+    }
+});
+
+Player2.controlBar.hide();
+
+Player2.playlist([
+    {
+        name: 'Casa Trascender',
+        description: 'Desc de prueba',
+        duration: 46,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=DF7jrgaS7C0', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/DF7jrgaS7C0/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    },
+    {
+        name: 'Casa Sauce',
+        description: 'Desc de prueba',
+        duration: 54,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=aYZSrdKXBKQ', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/aYZSrdKXBKQ/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    },
+    {
+        name: 'Casa Los Cisnes',
+        description: 'Desc de prueba',
+        duration: 51,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=7qVFZNV2dkw', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/7qVFZNV2dkw/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    },
+    {
+        name: 'Casa Libertad',
+        description: 'Desc de prueba',
+        duration: 115,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=DO6z2pH-mi0', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/DO6z2pH-mi0/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    },
+    {
+        name: 'Casa Los Olivos',
+        description: 'Desc de prueba',
+        duration: 137,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=4uaqunykS7Y', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/4uaqunykS7Y/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    },
+    {
+        name: 'Casa Cárdenas',
+        description: 'Desc de prueba',
+        duration: 78,           
+        sources: [
+            {
+                src: 'https://www.youtube.com/watch?v=sUZsYWv2mV8', 
+                type: 'video/youtube'
+            }
+        ],
+        thumbnail: [
+            {
+                src: 'https://img.youtube.com/vi/sUZsYWv2mV8/maxresdefault.jpg',
+                type: 'image/jpeg',
+                media: '(min-width: 400px;)'
+            },
+        ],
+    }
+]);
+
+Player2.playlistUi();
+
+Player2.playlist.autoadvance(3);
+
 // Add a listener to handle changes in screen width
 window.addEventListener("resize", handleResize);
 
-// Function to handle changes in screen width
 function handleResize() {
-  const playlistContainer = document.querySelector(".vjs-playlist");
-  if (window.innerWidth <= 767) {
-    playlistContainer.classList.remove("vjs-playlist-vertical");
-    playlistContainer.classList.add("vjs-playlist-horizontal");
-  } else {
-    playlistContainer.classList.remove("vjs-playlist-horizontal");
-    playlistContainer.classList.add("vjs-playlist-vertical");
+    const playlistContainers = document.querySelectorAll(".vjs-playlist");
+  
+    playlistContainers.forEach(playlistContainer => {
+      if (window.innerWidth <= 767) {
+        playlistContainer.classList.remove("vjs-playlist-vertical");
+        playlistContainer.classList.add("vjs-playlist-horizontal");
+      } else {
+        playlistContainer.classList.remove("vjs-playlist-horizontal");
+        playlistContainer.classList.add("vjs-playlist-vertical");
+      }
+    });
   }
-}
 
 // Call the function initially to apply the appropriate class
 handleResize();
+
+
+/*********************** Generador contenido dinámicamente ***********************/
+const proyectos = [
+    {
+        id:"elemento-1",
+        nombre: "Arevalo",
+        src: "../assets/img/projects/arevalo/arevalo (2).jpg",
+        urls: [
+            "../assets/img/projects/arevalo/arevalo (1).jpg",
+            "../assets/img/projects/arevalo/arevalo (2).jpg",
+            "../assets/img/projects/arevalo/arevalo (6).jpg",
+            "../assets/img/projects/arevalo/AREVALO_2 - Foto.jpg",
+            "../assets/img/projects/arevalo/AREVALO_5 - Foto.jpg",
+            "../assets/img/projects/arevalo/AREVALO_6 - Foto.jpg",
+            "../assets/img/projects/arevalo/AREVALO_8 - Foto.jpg",
+            "../assets/img/projects/arevalo/AREVALO_9 - Foto.jpg",
+            "../assets/img/projects/arevalo/baños_12 - Foto.jpg",
+            "../assets/img/projects/arevalo/baños_13 - Foto.jpg",
+        ]
+    },
+    {
+        id:"elemento-2",
+        nombre: "unnamed",
+        src: "../assets/img/projects/casa 23.05.22/1d5a5d14-935f-493a-8e0f-10a5cf040719.jpg",
+        urls: [
+            "../assets/img/projects/casa 23.05.22/1d5a5d14-935f-493a-8e0f-10a5cf040719.jpg",
+            "../assets/img/projects/casa 23.05.22/2a8c1e23-dbe4-4ed2-be7a-3733d64478fe.jpg",
+            "../assets/img/projects/casa 23.05.22/4e3da50b-4a10-44e7-a821-f3180a632b7b.jpg",
+            "../assets/img/projects/casa 23.05.22/8b4b9cd3-01cd-4647-8953-2a09163c859e.jpg",
+            "../assets/img/projects/casa 23.05.22/8f0746bd-c787-4339-9b89-622ad2364983.jpg",
+        ]
+    },
+    {
+        id:"elemento-3",
+        nombre: "Cesar",
+        src: "../assets/img/projects/CASA CESAR/casa cesar op c (1).jpg",
+        urls: [
+            "../assets/img/projects/CASA CESAR/casa cesar op c (1).jpg",
+            "../assets/img/projects/CASA CESAR/casa cesar op c (3).jpg",
+            "../assets/img/projects/CASA CESAR/casa cesar op c (5).jpg",
+            "../assets/img/projects/CASA CESAR/casa cesar op c (6).jpg",
+            "../assets/img/projects/CASA CESAR/casa cesar op c (7).jpg",
+            "../assets/img/projects/CASA CESAR/casa cesar op c (8).jpg",
+        ]
+    },
+    {
+        id:"elemento-4",
+        nombre: "Idalia",
+        src: "../assets/img/projects/Casa Idalia/272148809_2995030480749541_3236795485946543195_n.png",
+        urls: [
+            "../assets/img/projects/Casa Idalia/272139332_2995031900749399_9147269156200784118_n.jpg",
+            "../assets/img/projects/Casa Idalia/272148809_2995030480749541_3236795485946543195_n.png",
+            "../assets/img/projects/Casa Idalia/272199983_2995031890749400_4841066434289201751_n.jpg",
+            "../assets/img/projects/Casa Idalia/272274392_2995031917416064_3407292345995980040_n.jpg",
+        ]
+    },
+    {
+        id:"elemento-5",
+        nombre: "Los Cisnes",
+        src: "../assets/img/projects/CASA LOS CISNES/272621264_2999890223596900_8583503361040532005_n.jpg",
+        urls: [
+            "../assets/img/projects/CASA LOS CISNES/272276479_2999895793596343_8218012103566385816_n.jpg",
+            "../assets/img/projects/CASA LOS CISNES/272619606_2999890276930228_4673236196061011039_n.jpg",
+            "../assets/img/projects/CASA LOS CISNES/272621264_2999890223596900_8583503361040532005_n.jpg",
+            "../assets/img/projects/CASA LOS CISNES/272664022_2999890256930230_4992339015992948394_n.jpg",
+            "../assets/img/projects/CASA LOS CISNES/272730688_2999890246930231_6630633594766212666_n.jpg",
+        ]
+    },
+    {
+        id:"elemento-6",
+        nombre: "Oscar",
+        src: "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (1).jpg",
+        urls: [
+            "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (1).jpg",
+            "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (5).jpg",
+            "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (6).jpg",
+            "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (7).jpg",
+            "../assets/img/projects/CASA OSCAR (Infonavit)/oscar (8).jpg",
+        ]
+    },
+    {
+        id:"elemento-7",
+        nombre: "Ronquillo",
+        src: "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.54 (1).jpeg",
+        urls: [
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.54 (1).jpeg",
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.54.jpeg",
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.55 (1).jpeg",
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.55 (2).jpeg",
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.55.jpeg",
+            "../assets/img/projects/casa ronquillo/WhatsApp Image 2023-05-19 at 14.21.56.jpeg",
+        ]
+    },
+    {
+        id:"elemento-8",
+        nombre: "unnamed",
+        src: "../assets/img/projects/ok/d_9 - Foto(1).jpg",
+        urls: [
+            "../assets/img/projects/ok/c_16 - Foto2.jpg",
+            "../assets/img/projects/ok/c_18 - Foto2.jpg",
+            "../assets/img/projects/ok/d_4 - Foto(1).jpg",
+            "../assets/img/projects/ok/d_6 - Foto(1).jpg",
+            "../assets/img/projects/ok/d_9 - Foto(1).jpg",
+        ]
+    },
+    {
+        id:"elemento-9",
+        nombre: "unnamed",
+        src: "../assets/img/projects/propuesta 7/AA (1).jpg",
+        urls: [
+            "../assets/img/projects/propuesta 7/AA (1).jpg",
+            "../assets/img/projects/propuesta zator 7_Photo - 4.jpg",
+            "../assets/img/projects/propuesta zator 7_Photo - 8.jpg",
+            "../assets/img/projects/zator 7 noche_Photo - 5.jpg",
+            "../assets/img/projects/zator 7 noche_Photo - 6.jpg",
+            "../assets/img/projects/zator 7 noche_Photo - 7.jpg",
+            "../assets/img/projects/zator 7 noche_Photo - 8.jpg",
+        ]
+    },
+    {
+        id:"elemento-10",
+        nombre: "unnamed",
+        src: "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.41.jpeg",
+        urls: [
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.40.jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.41 (1).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.41 (2).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.41.jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.42 (1).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.42 (2).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.42.jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.43 (1).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.43 (2).jpeg",
+            "../assets/img/projects/PROYECTO/WhatsApp Image 2023-06-01 at 09.17.43 (3).jpeg",
+        ]
+    },
+    {
+        id:"elemento-11",
+        nombre: "Puerto de Manzanillo",
+        src: "../assets/img/projects/PUERTO DE MANZANILLO/274257194_3015385352047387_7561788735401663446_n.jpg",
+        urls: [
+            "../assets/img/projects/PUERTO DE MANZANILLO/274218299_3015385582047364_1210266291621771944_n.jpg",
+            "../assets/img/projects/PUERTO DE MANZANILLO/274257194_3015385352047387_7561788735401663446_n.jpg",
+            "../assets/img/projects/PUERTO DE MANZANILLO/274266783_3015385578714031_8608477530330495841_n.jpg",
+            "../assets/img/projects/PUERTO DE MANZANILLO/274290210_3015385568714032_1862746207070414506_n.jpg",
+            "../assets/img/projects/PUERTO DE MANZANILLO/274313408_3015385592047363_8960796445594941282_n.jpg",
+        ]
+    },
+]
+
+const insertaProyectos = (proyectos) => {
+    const contenido = document.getElementById("contenido-proyectos");
+
+    proyectos.forEach(proyecto => {
+        const galleryItemContainer = document.createElement("div");
+        galleryItemContainer.classList.add("gallery-item-container");
+
+        const img = document.createElement("img");
+        img.src = proyecto.src;
+        img.alt = proyecto.nombre;
+
+        galleryItemContainer.appendChild(img);
+
+        const galleryItemInfo = document.createElement("div");
+        galleryItemInfo.classList.add("gallery-item-info");
+
+        const h4 = document.createElement("h4");
+        h4.textContent = proyecto.nombre;
+
+        const a = document.createElement("a");
+        a.href = "#inline-content";
+        a.id = proyecto.id;
+        a.classList.add("glightbox4", "boton-modal");
+        a.textContent = "Ver más";
+
+        galleryItemInfo.appendChild(h4);
+        galleryItemInfo.appendChild(a);
+
+        const colDiv = document.createElement("div");
+        colDiv.classList.add("col-lg-4", "col-sm-6", "col-12", "hover-gallery", "d-flex", "flex-column", "justify-content-end");
+        colDiv.appendChild(galleryItemContainer);
+        colDiv.appendChild(galleryItemInfo);
+
+        contenido.appendChild(colDiv);
+    });
+}
+
+insertaProyectos(proyectos);
+
+/*********************** GLIGHTBOX ***********************/
+const customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
+    <div class="gloader visible"></div>
+    <div class="goverlay"></div>
+    <div class="gcontainer">
+    <div id="glightbox-slider" class="gslider"></div>
+    <button class="gnext gbtn d-none" tabindex="0" aria-label="Next" data-customattribute="example">{nextSVG}</button>
+    <button class="gprev gbtn d-none" tabindex="1" aria-label="Previous">{prevSVG}</button>
+    <button class="gclose gbtn" tabindex="2" aria-label="Close">{closeSVG}</button>
+</div>
+</div>`;
+
+/* Contenido de lightbox */
+// Obtén una referencia a todos los botones
+const buttons = document.querySelectorAll('.boton-modal');
+// Función genérica para manejar el clic en cualquier botón
+const handleButtonClick = event => {
+    const modal = document.getElementById("inline-content");
+    const buttonId = event.target.id;
+
+    // Find the index of the object with a matching id
+    const index = proyectos.findIndex(proyecto => proyecto.id === buttonId);
+
+    // Si el índice no existe en el Array, entonces no existe ese elemento, por lo que detiene la ejecución y básicamente no hace nada el botón
+    if (index === -1) {
+        return;
+    }
+
+    modal.innerHTML = '';
+
+    const galleryItemBanner = document.createElement("div");
+    galleryItemBanner.classList.add("gallery-item-banner");
+    galleryItemBanner.style.backgroundImage = `url("${proyectos[index].src}")`;
+
+    const img = document.createElement("img");
+    img.classList.add("gallery-item-banner-img");
+    img.src = proyectos[index].src;
+    img.alt = proyectos[index].nombre;
+
+    galleryItemBanner.appendChild(img);
+
+    const galleryItemInfo = document.createElement("div");
+    galleryItemInfo.classList.add("gallery-item-info");
+
+    const title = document.createElement("h2");
+    title.textContent = proyectos[index].nombre;
+    
+    galleryItemInfo.appendChild(title);
+
+    modal.appendChild(galleryItemBanner);
+    modal.appendChild(galleryItemInfo);
+
+    const lightboxInlineIframe = GLightbox({
+        lightboxHTML: customLightboxHTML,
+        selector: '.glightbox4',
+        touchNavigation: false,
+        draggable: false,
+        slideEffect: false,
+        keyboardNavigation: false,
+        preload: false,
+    });
+
+    lightboxInlineIframe.on('close', () => {
+        lightboxInlineIframe.destroy();
+    });
+
+    lightboxInlineIframe.open();
+}
+
+// Agrega el evento de clic a cada botón
+buttons.forEach(button => {
+  button.addEventListener('click', handleButtonClick);
+});
+  
