@@ -380,12 +380,12 @@ const proyectos = [
         src: "../assets/img/projects/propuesta 7/AA (1).jpg",
         urls: [
             "../assets/img/projects/propuesta 7/AA (1).jpg",
-            "../assets/img/projects/propuesta zator 7_Photo - 4.jpg",
-            "../assets/img/projects/propuesta zator 7_Photo - 8.jpg",
-            "../assets/img/projects/zator 7 noche_Photo - 5.jpg",
-            "../assets/img/projects/zator 7 noche_Photo - 6.jpg",
-            "../assets/img/projects/zator 7 noche_Photo - 7.jpg",
-            "../assets/img/projects/zator 7 noche_Photo - 8.jpg",
+            "../assets/img/projects/propuesta 7/propuesta zator 7_Photo - 4.jpg",
+            "../assets/img/projects/propuesta 7/propuesta zator 7_Photo - 8.jpg",
+            "../assets/img/projects/propuesta 7/zator 7 noche_Photo - 5.jpg",
+            "../assets/img/projects/propuesta 7/zator 7 noche_Photo - 6.jpg",
+            "../assets/img/projects/propuesta 7/zator 7 noche_Photo - 7.jpg",
+            "../assets/img/projects/propuesta 7/zator 7 noche_Photo - 8.jpg",
         ]
     },
     {
@@ -478,7 +478,7 @@ const handleButtonClick = event => {
     const modal = document.getElementById("inline-content");
     const buttonId = event.target.id;
 
-    // Find the index of the object with a matching id
+    // Encuentra el índice según el id de cada elementos
     const index = proyectos.findIndex(proyecto => proyecto.id === buttonId);
 
     // Si el índice no existe en el Array, entonces no existe ese elemento, por lo que detiene la ejecución y básicamente no hace nada el botón
@@ -486,8 +486,11 @@ const handleButtonClick = event => {
         return;
     }
 
+    // Borra el contenido del 'modal'
     modal.innerHTML = '';
 
+    // Crear la estructura de la galería, los proyectos
+    // Primero crear el banner
     const galleryItemBanner = document.createElement("div");
     galleryItemBanner.classList.add("gallery-item-banner");
     galleryItemBanner.style.backgroundImage = `url("${proyectos[index].src}")`;
@@ -499,20 +502,50 @@ const handleButtonClick = event => {
 
     galleryItemBanner.appendChild(img);
 
+    // Esto es para el titulo del proyecto y la galería del mismo
     const galleryItemInfo = document.createElement("div");
     galleryItemInfo.classList.add("gallery-item-info");
 
     const title = document.createElement("h2");
     title.textContent = proyectos[index].nombre;
-    
-    galleryItemInfo.appendChild(title);
 
+    const galleryItemsRow = document.createElement("div");
+    galleryItemsRow.classList.add("row", "gy-3", "mt-3");
+
+    // Esto es para generar la galería interna
+    let contador = 1;
+    proyectos[index].urls.forEach(item => {
+        const galleryItemsCol = document.createElement("div");
+        galleryItemsCol.classList.add("col-sm-6", "col-md-4", "col-12", "d-flex", "flex-column", "justify-content-end");
+
+        const anchor = document.createElement("a");
+        // anchor.href = `${item}`;
+        anchor.id = `${proyectos[index].nombre}-${contador}`;
+        anchor.classList.add("glightbox5");
+
+        const imgs = document.createElement("img");
+        imgs.src = item;
+        imgs.alt = `${proyectos[index].nombre}-${contador}`;
+
+        anchor.appendChild(imgs)
+        galleryItemsCol.appendChild(anchor);
+        galleryItemsRow.appendChild(galleryItemsCol);
+
+        contador++;
+    });
+
+    galleryItemInfo.appendChild(title);
+    galleryItemInfo.appendChild(galleryItemsRow);
+
+    // Pegar ambos elementos al 'modal'
     modal.appendChild(galleryItemBanner);
     modal.appendChild(galleryItemInfo);
 
+    // Lightbox del modal
     const lightboxInlineIframe = GLightbox({
         lightboxHTML: customLightboxHTML,
-        selector: '.glightbox4',
+        // selector: '.glightbox4',
+        selector: `#${buttonId}`,
         touchNavigation: false,
         draggable: false,
         slideEffect: false,
@@ -520,10 +553,22 @@ const handleButtonClick = event => {
         preload: false,
     });
 
+    // generar la cadena de elementos a inicializar
+    // let contenido = '[';
+    // proyectos[index].urls.forEach(url => {
+    //     contenido += `{'href': '${url}', 'type': 'image'},`;
+    // });
+    // contenido += ']';
+
+    
+    /*                                */
+
+    // Destruye el 'modal' al cerrarse'
     lightboxInlineIframe.on('close', () => {
         lightboxInlineIframe.destroy();
     });
 
+    // abre el 'modal' al final de todo
     lightboxInlineIframe.open();
 }
 
@@ -531,4 +576,3 @@ const handleButtonClick = event => {
 buttons.forEach(button => {
   button.addEventListener('click', handleButtonClick);
 });
-  

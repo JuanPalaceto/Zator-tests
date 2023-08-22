@@ -164,8 +164,15 @@ body {
         padding: 2rem 5rem;
         & h2 {
             font-weight: 700;
+            margin: 0;
             text-align: center;
             text-transform: uppercase;
+        }
+        & img {
+            width: 100%;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         }
     }
 }
@@ -794,7 +801,21 @@ footer {
 /*--------------------------------------------------------------
 # Medias query
 --------------------------------------------------------------*/
+@media (max-width: 459px) {
+    .gallery-modal {
+        & .gallery-item-info {
+            padding: 2rem 2rem;
+        }
+    }
+}
 @media (max-width: 575px) {
+    .gallery-modal {
+        & .gallery-item-banner {
+            &-img {
+                width: 75%;
+            }
+        }
+    }
     .navbar ul {
         & li:last-child {
             flex-wrap: wrap;
@@ -928,6 +949,25 @@ footer {
     .navbar-mobile a {
         display: block;
         text-align: center;
+    }
+}
+@media (min-width: 1440px) {
+    .gslide-media.gslide-inline {
+        height: 800px !important;
+        width: 1400px !important;
+    }
+
+    #inline-content {
+        height: 800px !important;
+        max-width: 1400px !important;
+    }
+
+    .gallery-modal .gallery-item-banner {
+        height: 500px;
+    }
+
+    .gallery-modal .gallery-item-banner-img {
+        width: 35%;
     }
 }
 @media (max-width: 1920px) {
