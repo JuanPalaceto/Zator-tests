@@ -19,6 +19,10 @@ var swiper = new Swiper('.swiper', {
             initialSlide: "2",
         }
     },
+    navigation: {
+        nextEl: '.swiper-button-next', // Clase CSS para el botón de siguiente
+        prevEl: '.swiper-button-prev', // Clase CSS para el botón anterior
+    },
     on: {
         resize: function () {
             swiper.changeDirection(getDirection());

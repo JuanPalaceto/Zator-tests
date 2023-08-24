@@ -179,6 +179,7 @@ body {
         }
     }
 }
+// banner de la galería
 .banner {
     background-color: $primary-color;
     height: auto;
@@ -310,6 +311,25 @@ section {
             color: $primary-color;
         }
     }
+}
+// CSS de SwiperJS
+.swiper-button-prev,
+.swiper-button-next {
+    &:hover {
+        opacity: 0.6;
+    }
+}
+.swiper-button-prev::after {
+    color: #fff;
+    content: "\ed38";
+    font-family: "boxicons";
+    text-shadow: 0 0 10px #000; // #333
+}
+.swiper-button-next::after {
+    color: #fff;
+    content: "\ed3b";
+    font-family: "boxicons";
+    text-shadow: 0 0 10px #000; // #333
 }
 /*--------------------------------------------------------------
 # Header
@@ -491,6 +511,7 @@ section {
             font-weight: 700;
             position: relative;
             text-transform: uppercase;
+            text-shadow: 0px 0px 10px rgba(0,0,0,1);
         }
     }
     & .slide-content {
@@ -628,6 +649,37 @@ section {
     }
     & button[type="submit"] {
         @include btn-mixin;
+    }
+}
+/*--------------------------------------------------------------
+# Separador
+--------------------------------------------------------------*/
+.separador {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    &::after {
+        background-color: rgba(0, 0 ,0 , 0.75);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    & .separador-content {
+        color: $secondary-color;
+        font-style: italic;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 2rem 0;
+        position: relative;
+        text-align: center;
+        z-index: 2;
     }
 }
 /*--------------------------------------------------------------
@@ -773,6 +825,10 @@ footer {
 # PANTALLA DE DISEÑO
 --------------------------------------------------------------*/
 @import "../../diseno-residencial/assets/css/style";
+/*--------------------------------------------------------------
+# PANTALLA DE INMOBILIARIA
+--------------------------------------------------------------*/
+@import "../../inmobiliaria/assets/css/style";
 /*--------------------------------------------------------------
 # PANTALLA DE INFONAVIT
 --------------------------------------------------------------*/
