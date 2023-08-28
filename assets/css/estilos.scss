@@ -179,7 +179,6 @@ body {
         }
     }
 }
-// banner de la galería
 .banner {
     background-color: $primary-color;
     height: auto;
@@ -663,7 +662,7 @@ section {
     position: relative;
     z-index: 1;
     &::after {
-        background-color: rgba(0, 0 ,0 , 0.75);
+        background-color: rgba(0, 0 ,0 , 0.5);
         content: "";
         height: 100%;
         left: 0;

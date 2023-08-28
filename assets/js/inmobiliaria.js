@@ -4,6 +4,7 @@ const proyectos_casas = [
         id:"casa-1",
         nombre: "CASA COL. MODERNA",
         src: "assets/img/CASA COL. MODERNA/pre venta (1).png",
+        precio: "",
         urls: [
             "assets/img/CASA COL. MODERNA/pre venta (1).png",
         ]
@@ -12,6 +13,7 @@ const proyectos_casas = [
         id:"casa-2",
         nombre: "CASA VIENTO HUASTECO",
         src: "assets/img/CASA VIENTO HUASTECO/¡VENTA DE CASA!.png",
+        precio: "$1,250,000.00",
         urls: [
             "assets/img/CASA VIENTO HUASTECO/¡VENTA DE CASA!.png",
             "assets/img/CASA VIENTO HUASTECO/7b0f9381-8362-40eb-9449-27c92f2fe5ec.jpg",
@@ -24,6 +26,7 @@ const proyectos_casas = [
         id:"casa-3",
         nombre: "FRACCIONAMIENTO JARDINES DEL SAUCE",
         src: "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/1.png",
+        precio: "$1,800,000.00",
         urls: [
             "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/1.png",
             "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/4.jpg",
@@ -48,6 +51,7 @@ const proyectos_terrenos = [
         id:"terreno-1",
         nombre: "PEDREGAL",
         src: "assets/img/PEDREGAL/342729176_783125086583308_6161645058872096818_n.jpg",
+        precio: "$560,000.00",
         urls: [
             "assets/img/PEDREGAL/342729176_783125086583308_6161645058872096818_n.jpg",
             "assets/img/PEDREGAL/Diseño sin título (22).png",
@@ -62,6 +66,23 @@ const proyectos_arrays = {
     proyectos_casas,
     proyectos_terrenos
 };
+
+// Para ajustar la altura
+const mideHeights = (elementos) => {
+    let minHeight = 9999;
+
+    elementos.forEach((item) => {
+        const infoHeight = item.offsetHeight;
+
+        if (infoHeight < minHeight) {
+            minHeight = infoHeight;
+        }
+    });
+
+    elementos.forEach((item) => {
+        item.style.height = `${minHeight}px`;
+    })
+}
 
 const insertaProyectos = (array, proyectos, id) => {
     // Obtiene el div que dejé en el html donde irá todo
@@ -86,6 +107,9 @@ const insertaProyectos = (array, proyectos, id) => {
         const h4 = document.createElement("h4");
         h4.textContent = proyecto.nombre;
 
+        const h5 = document.createElement("h5");
+        h5.textContent = proyecto.precio;
+
         const a = document.createElement("a");
         a.href = "#inline-content";
         a.id = proyecto.id;
@@ -94,11 +118,13 @@ const insertaProyectos = (array, proyectos, id) => {
         a.setAttribute("data-array", array);
 
         galleryItemInfo.appendChild(h4);
+        galleryItemInfo.appendChild(h5);
         galleryItemInfo.appendChild(a);
 
         // Según yo aquí se comienzan a generar lso elementos. (Falta un row?)
         const colDiv = document.createElement("div");
-        colDiv.classList.add("col-lg-4", "col-sm-6", "col-12", "hover-gallery", "d-flex", "flex-column", "justify-content-end");
+        colDiv.classList.add("col-lg-4", "col-sm-6", "col-12", "hover-gallery", "d-flex", "flex-column");
+        // Quité estas clases de arriba "d-flex", "flex-column", "justify-content-between"
         colDiv.appendChild(galleryItemContainer);
         colDiv.appendChild(galleryItemInfo);
 
@@ -220,3 +246,6 @@ buttons.forEach(button => {
         handleButtonClick(event, proyectos_arrays[arrayName]);
     });
 });
+
+// const imgDiv = document.querySelectorAll('.gallery-item-container');
+// mideHeights(imgDiv);

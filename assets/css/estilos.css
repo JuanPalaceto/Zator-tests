@@ -679,7 +679,7 @@ section {
   z-index: 1;
 }
 .separador::after {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
   content: "";
   height: 100%;
   left: 0;
@@ -1038,7 +1038,7 @@ footer .logo img {
   content: "\f8c6";
   font-family: "bootstrap-icons";
   font-size: 10rem;
-  opacity: 0.3;
+  opacity: 0.25;
   position: absolute;
   right: 50px;
   text-shadow: 0 0 30px #022b63;
