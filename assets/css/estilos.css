@@ -27,7 +27,8 @@
   z-index: 9999;
 }
 #preloader::before {
-  animation: animate-preloader 1s linear infinite;
+  -webkit-animation: animate-preloader 1s linear infinite;
+          animation: animate-preloader 1s linear infinite;
   border: 6px solid #fff;
   border-radius: 50%;
   border-top-color: #a1a1a1;
@@ -37,6 +38,15 @@
   position: fixed;
   top: calc(50% - 30px);
   width: 60px;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes animate-preloader {
@@ -56,7 +66,8 @@
   }
 }
 [data-aos=zoom-imagen] {
-  animation: zoom-imagen 4s ease-in;
+  -webkit-animation: zoom-imagen 4s ease-in;
+          animation: zoom-imagen 4s ease-in;
 }
 
 /*--------------------------------------------------------------
@@ -87,12 +98,16 @@ body {
   width: 100%;
 }
 .hover-gallery img {
-  width: 100%;
-  transform: scale(1);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
   transition: all 0.3s ease-in-out;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
+  width: 100%;
 }
 .hover-gallery .gallery-item-info {
   background-color: #fff;
@@ -130,7 +145,7 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .hover-gallery:hover img {
-  transform: scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .gallery-modal {
@@ -555,11 +570,16 @@ section {
   width: 94px;
 }
 .about .play-btn::before {
-  animation: pulsate-btn 2s;
-  animation-delay: 0s;
-  animation-direction: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps;
+  -webkit-animation: pulsate-btn 2s;
+          animation: pulsate-btn 2s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-direction: forwards;
+          animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps;
+          animation-timing-function: steps;
   background: rgba(198, 16, 0, 0);
   border: 5px solid rgba(255, 255, 255, 0.85);
   border-radius: 50%;
@@ -586,7 +606,8 @@ section {
   z-index: 100;
 }
 .about .play-btn:hover::before {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   border: none;
   border-bottom: 10px solid transparent;
   border-left: 15px solid #fff;
@@ -679,7 +700,7 @@ section {
   z-index: 1;
 }
 .separador::after {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   content: "";
   height: 100%;
   left: 0;
@@ -1038,7 +1059,7 @@ footer .logo img {
   content: "\f8c6";
   font-family: "bootstrap-icons";
   font-size: 10rem;
-  opacity: 0.25;
+  opacity: 0.15;
   position: absolute;
   right: 50px;
   text-shadow: 0 0 30px #022b63;
@@ -1060,6 +1081,16 @@ footer .logo img {
 /*--------------------------------------------------------------
 # Keyframes
 --------------------------------------------------------------*/
+@-webkit-keyframes pulsate-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
 @keyframes pulsate-btn {
   0% {
     transform: scale(0.6, 0.6);
@@ -1068,6 +1099,14 @@ footer .logo img {
   100% {
     transform: scale(1, 1);
     opacity: 0;
+  }
+}
+@-webkit-keyframes zoom-imagen {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 @keyframes zoom-imagen {

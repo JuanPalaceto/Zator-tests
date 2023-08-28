@@ -247,5 +247,20 @@ buttons.forEach(button => {
     });
 });
 
-// const imgDiv = document.querySelectorAll('.gallery-item-container');
-// mideHeights(imgDiv);
+
+// El listener hace que cada que se mueva la pantalla se ajuste el height de cada div
+window.addEventListener('resize', () => {
+    const container = document.querySelectorAll('.gallery-item-container');
+    container.forEach(element => {
+        const width = element.offsetWidth;
+
+        // Calcular el height (el porcentaje lo saqué de hacerlo manualmente)
+        const height = (width * 83.8265) / 100;
+
+        // Se coloca el height adecuado
+        element.style.height = `${height}px`;
+    });
+});
+
+// Ejecuta el evento al comenzar
+window.dispatchEvent(new Event('resize'));
