@@ -459,23 +459,13 @@ const insertaProyectos = (proyectos) => {
 insertaProyectos(proyectos);
 
 /*********************** GLIGHTBOX ***********************/
-const customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
-    <div class="gloader visible"></div>
-    <div class="goverlay"></div>
-    <div class="gcontainer">
-    <div id="glightbox-slider" class="gslider"></div>
-    <button class="gnext gbtn d-none" tabindex="0" aria-label="Next" data-customattribute="example">{nextSVG}</button>
-    <button class="gprev gbtn d-none" tabindex="1" aria-label="Previous">{prevSVG}</button>
-    <button class="gclose gbtn" tabindex="2" aria-label="Close">{closeSVG}</button>
-</div>
-</div>`;
-
 /* Contenido de lightbox */
 // Obtén una referencia a todos los botones
 const buttons = document.querySelectorAll('.boton-modal');
 // Función genérica para manejar el clic en cualquier botón
 const handleButtonClick = event => {
-    const modal = document.getElementById("inline-content");
+    const modal = document.createElement("div");
+    modal.classList.add("gallery-modal");
     const buttonId = event.target.id;
 
     // Encuentra el índice según el id de cada elementos
@@ -485,9 +475,6 @@ const handleButtonClick = event => {
     if (index === -1) {
         return;
     }
-
-    // Borra el contenido del 'modal'
-    modal.innerHTML = '';
 
     // Crear la estructura de la galería, los proyectos
     // Primero crear el banner
@@ -507,7 +494,7 @@ const handleButtonClick = event => {
     galleryItemInfo.classList.add("gallery-item-info");
 
     const title = document.createElement("h2");
-    title.textContent = proyectos[index].nombre;
+    title.textContent = `${proyectos[index].nombre} - Galería`;
 
     const galleryItemsRow = document.createElement("div");
     galleryItemsRow.classList.add("row", "gy-3", "mt-3");
@@ -531,6 +518,13 @@ const handleButtonClick = event => {
         galleryItemsCol.appendChild(anchor);
         galleryItemsRow.appendChild(galleryItemsCol);
 
+        // IIFE - Immediately Invoked Function Expression) -> La explicación de esto está en inmobiliaria.js
+        anchor.addEventListener('click', (function(contador) {
+            return function(event) {
+                lightboxInlineIframe.goToSlide(contador);
+            };
+        })(contador));
+
         contador++;
     });
 
@@ -542,26 +536,20 @@ const handleButtonClick = event => {
     modal.appendChild(galleryItemInfo);
 
     // Lightbox del modal
+    contadorLightbox = 0;
     const lightboxInlineIframe = GLightbox({
-        lightboxHTML: customLightboxHTML,
-        // selector: '.glightbox4',
-        selector: `#${buttonId}`,
-        touchNavigation: false,
-        draggable: false,
-        slideEffect: false,
-        keyboardNavigation: false,
+        elements: [
+            {
+                'content': modal
+            },
+            ...proyectos[index].urls.map(url => ({
+                'href': url,
+                'type': 'image',
+                'alt': `${proyectos[index].nombre}-${contadorLightbox++}`
+            }))
+        ],
         preload: false,
     });
-
-    // generar la cadena de elementos a inicializar
-    // let contenido = '[';
-    // proyectos[index].urls.forEach(url => {
-    //     contenido += `{'href': '${url}', 'type': 'image'},`;
-    // });
-    // contenido += ']';
-
-
-    /*                                */
 
     // Destruye el 'modal' al cerrarse'
     lightboxInlineIframe.on('close', () => {
