@@ -1,5 +1,5 @@
 // APRENDE CON NOSOTROS
-const Player = videojs("my-video", { 
+const Player = videojs("my-video", {
     "controls": true,
     // controlBar: {
     //     pictureInPictureToggle: false,
@@ -23,10 +23,10 @@ Player.playlist([
     {
         name: 'Evita estos errores',
         description: 'Desc de prueba',
-        duration: 353,           
+        duration: 353,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=uEWM7oGaZ4w', 
+                src: 'https://www.youtube.com/watch?v=uEWM7oGaZ4w',
                 type: 'video/youtube'
             }
         ],
@@ -46,10 +46,10 @@ Player.playlist([
     {
         name: 'No gastes de más',
         description: 'Desc de prueba',
-        duration: 171,           
+        duration: 171,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=Wikz02b3mqY', 
+                src: 'https://www.youtube.com/watch?v=Wikz02b3mqY',
                 type: 'video/youtube'
             }
         ],
@@ -69,10 +69,10 @@ Player.playlist([
     {
         name: 'Ahorra en tu cimentación',
         description: 'Desc de prueba',
-        duration: 165,           
+        duration: 165,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=TKo8igacFUY', 
+                src: 'https://www.youtube.com/watch?v=TKo8igacFUY',
                 type: 'video/youtube'
             }
         ],
@@ -91,10 +91,10 @@ Player.playlist([
     {
         name: 'Tipos de cimentación',
         description: 'Desc de prueba',
-        duration: 147,           
+        duration: 147,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4', 
+                src: 'https://www.youtube.com/watch?v=G6HXi5g0ip4',
                 type: 'video/youtube'
             }
         ],
@@ -122,7 +122,7 @@ Player.playlistUi();
 // Player.playlist.autoadvance(0);
 
 // APRENDE CON NOSOTROS
-const Player2 = videojs("my-video-2", { 
+const Player2 = videojs("my-video-2", {
     "controls": true,
     "preload": "none",
     "fluid": true,
@@ -138,10 +138,10 @@ Player2.playlist([
     {
         name: 'Casa Trascender',
         description: 'Desc de prueba',
-        duration: 46,           
+        duration: 46,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=DF7jrgaS7C0', 
+                src: 'https://www.youtube.com/watch?v=DF7jrgaS7C0',
                 type: 'video/youtube'
             }
         ],
@@ -156,10 +156,10 @@ Player2.playlist([
     {
         name: 'Casa Sauce',
         description: 'Desc de prueba',
-        duration: 54,           
+        duration: 54,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=aYZSrdKXBKQ', 
+                src: 'https://www.youtube.com/watch?v=aYZSrdKXBKQ',
                 type: 'video/youtube'
             }
         ],
@@ -174,10 +174,10 @@ Player2.playlist([
     {
         name: 'Casa Los Cisnes',
         description: 'Desc de prueba',
-        duration: 51,           
+        duration: 51,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=7qVFZNV2dkw', 
+                src: 'https://www.youtube.com/watch?v=7qVFZNV2dkw',
                 type: 'video/youtube'
             }
         ],
@@ -192,10 +192,10 @@ Player2.playlist([
     {
         name: 'Casa Libertad',
         description: 'Desc de prueba',
-        duration: 115,           
+        duration: 115,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=DO6z2pH-mi0', 
+                src: 'https://www.youtube.com/watch?v=DO6z2pH-mi0',
                 type: 'video/youtube'
             }
         ],
@@ -210,10 +210,10 @@ Player2.playlist([
     {
         name: 'Casa Los Olivos',
         description: 'Desc de prueba',
-        duration: 137,           
+        duration: 137,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=4uaqunykS7Y', 
+                src: 'https://www.youtube.com/watch?v=4uaqunykS7Y',
                 type: 'video/youtube'
             }
         ],
@@ -228,10 +228,10 @@ Player2.playlist([
     {
         name: 'Casa Cárdenas',
         description: 'Desc de prueba',
-        duration: 78,           
+        duration: 78,
         sources: [
             {
-                src: 'https://www.youtube.com/watch?v=sUZsYWv2mV8', 
+                src: 'https://www.youtube.com/watch?v=sUZsYWv2mV8',
                 type: 'video/youtube'
             }
         ],
@@ -254,7 +254,7 @@ window.addEventListener("resize", handleResize);
 
 function handleResize() {
     const playlistContainers = document.querySelectorAll(".vjs-playlist");
-  
+
     playlistContainers.forEach(playlistContainer => {
       if (window.innerWidth <= 767) {
         playlistContainer.classList.remove("vjs-playlist-vertical");
@@ -560,7 +560,7 @@ const handleButtonClick = event => {
     // });
     // contenido += ']';
 
-    
+
     /*                                */
 
     // Destruye el 'modal' al cerrarse'
@@ -574,5 +574,25 @@ const handleButtonClick = event => {
 
 // Agrega el evento de clic a cada botón
 buttons.forEach(button => {
-  button.addEventListener('click', handleButtonClick);
+    button.addEventListener('click', handleButtonClick);
 });
+
+// El listener hace que cada que se mueva la pantalla se ajuste el height de cada div
+// Este bloque ir en todos los js que usen glithbox !!!! CON DIFERENTES PORCENTAJES DE HEIGHT SEGUN LAS IMGS
+// OJO DEPENDE MUCHO DE LA IMAGEN QUE PONGAN COMO THUMB
+// MUY IMPORTANTE ASÍ QUE NO DEJAR A LA LIGERA ESO
+window.addEventListener('resize', () => {
+    const container = document.querySelectorAll('.gallery-item-container');
+    container.forEach(element => {
+        const width = element.offsetWidth;
+
+        // Calcular el height (el porcentaje lo saqué de hacerlo manualmente)
+        const height = (width * 56.25) / 100;
+
+        // Se coloca el height adecuado
+        element.style.height = `${height}px`;
+    });
+});
+
+// Ejecuta el evento al comenzar
+window.dispatchEvent(new Event('resize'));

@@ -1,10 +1,24 @@
 /*********************** Generador contenido dinámicamente ***********************/
+// Igual podría investigar como llevarme esto a otro archivo (o una bd más adelante...)
 const proyectos_casas = [
     {
         id:"casa-1",
         nombre: "CASA COL. MODERNA",
         src: "assets/img/CASA COL. MODERNA/pre venta (1).png",
         precio: "",
+        ubicacion: "Margen del Río, Moderna, 87134 Cd Victoria, Tamps.",
+        lote: "desde 130m2 (6.5X20)",
+        construccion: "",
+        habitaciones: "2 habitaciones",
+        banos: "1 baño",
+        caracteristicas: [
+            "2 habitaciones",
+            "Sala",
+            "Cocina",
+            "Comedor",
+            "Patio frontal",
+            "Baño"
+        ],
         urls: [
             "assets/img/CASA COL. MODERNA/pre venta (1).png",
         ]
@@ -14,6 +28,19 @@ const proyectos_casas = [
         nombre: "CASA VIENTO HUASTECO",
         src: "assets/img/CASA VIENTO HUASTECO/¡VENTA DE CASA!.png",
         precio: "$1,250,000.00",
+        ubicacion: "Viento Huasteco, esquina con calle Cdad. Victoria y Calle Estado de Veracruz, frente al área verde.",
+        lote: "126.89m2",
+        construccion: "106m2",
+        habitaciones: "2 habitaciones",
+        banos: "2 baños",
+        caracteristicas: [
+            "3 habitaciones",
+            "Sala",
+            "Comedor",
+            "Cocina",
+            "Cochera",
+            "2 baños",
+        ],
         urls: [
             "assets/img/CASA VIENTO HUASTECO/¡VENTA DE CASA!.png",
             "assets/img/CASA VIENTO HUASTECO/7b0f9381-8362-40eb-9449-27c92f2fe5ec.jpg",
@@ -27,6 +54,36 @@ const proyectos_casas = [
         nombre: "FRACCIONAMIENTO JARDINES DEL SAUCE",
         src: "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/1.png",
         precio: "$1,800,000.00",
+        ubicacion: "Lic. Ciro de La Garza 959, Sin Nombre de Col 7, 87030 Cd Victoria, Tamps.",
+        lote: "desde 144m2 (8x18)",
+        construccion: "140m2",
+        habitaciones: "3 habitaciones",
+        banos: "3 1/2 baños",
+        caracteristicas: [
+            "Barda perimetral",
+            "Acceso controlado",
+            "Instalaciones eléctricas subterráneas",
+            "Área verde",
+            "Alberca con salón",
+            "Calles pavimentadas",
+            "Juegos infantiles",
+            "Asadores y palapa común",
+            "Régimen de condominio",
+            "Lotes desde 144m2 (8x18)",
+            "Construcción 140m2",
+            "2 habitaciones en planta alta",
+            "1 habitación en planta baja",
+            "Sala",
+            "Cocina",
+            "Comedor",
+            "Patio frontal",
+            "Cochera para dos vehículos",
+            "3 1/2 baños",
+            "Pasillo de servicio",
+            "Área de lavandería techada",
+            "Preparación para minisplits",
+            "Balcón"
+        ],
         urls: [
             "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/1.png",
             "assets/img/FRACCIONAMIENTO JARDINES DEL SAUCE/4.jpg",
@@ -52,6 +109,20 @@ const proyectos_terrenos = [
         nombre: "PEDREGAL",
         src: "assets/img/PEDREGAL/342729176_783125086583308_6161645058872096818_n.jpg",
         precio: "$560,000.00",
+        ubicacion: "Lib. Guadalupe Victoria 925, 87084 Tamps.",
+        lote: "200m2",
+        caracteristicas: [
+            "Barda perimetral a 2.5 mts.",
+            "Acceso controlado",
+            "Instalaciones eléctricas subterráneas",
+            "Área verde",
+            "Alberca con salón",
+            "Calles pavimentadas",
+            "Juegos infantiles",
+            "Circuito de cámaras",
+            "Asadores y palapa común",
+            "Régimen de condominio"
+        ],
         urls: [
             "assets/img/PEDREGAL/342729176_783125086583308_6161645058872096818_n.jpg",
             "assets/img/PEDREGAL/Diseño sin título (22).png",
@@ -67,7 +138,24 @@ const proyectos_arrays = {
     proyectos_terrenos
 };
 
+// Para agregar el botón de back
+const customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
+    <div class="gloader visible"></div>
+    <div class="goverlay"></div>
+    <div class="gcontainer">
+    <div id="glightbox-slider" class="gslider"></div>
+    <button class="gnext gbtn" tabindex="0" aria-label="Next" data-customattribute="example">{nextSVG}</button>
+    <button class="gprev gbtn" tabindex="1" aria-label="Previous">{prevSVG}</button>
+    <button class="gclose gbtn" tabindex="3" aria-label="Close">{closeSVG}</button>
+    <button class="gback gbtn" tabindex="2" aria-label="Regresar">
+        <i class='bx bxs-chevron-left'></i>
+        Regresar
+    </button>
+</div>
+</div>`;
+
 // Para ajustar la altura
+// YA NO SE USA, CREO
 const mideHeights = (elementos) => {
     let minHeight = 9999;
 
@@ -92,7 +180,9 @@ const insertaProyectos = (array, proyectos, id) => {
         // Aquí se crean los componentes y se anidan (no tocar esto por las clases !!)
         // Esto es hasta las imagenes
         const galleryItemContainer = document.createElement("div");
-        galleryItemContainer.classList.add("gallery-item-container");
+        galleryItemContainer.classList.add("gallery-item-container", "btn-lightbox");
+        galleryItemContainer.setAttribute("id-proyecto", proyecto.id);
+        galleryItemContainer.setAttribute("data-array", array);
 
         const img = document.createElement("img");
         img.src = proyecto.src;
@@ -106,20 +196,15 @@ const insertaProyectos = (array, proyectos, id) => {
 
         const h4 = document.createElement("h4");
         h4.textContent = proyecto.nombre;
+        h4.classList.add("btn-lightbox");
+        h4.setAttribute("id-proyecto", proyecto.id);
+        h4.setAttribute("data-array", array);
 
         const h5 = document.createElement("h5");
         h5.textContent = proyecto.precio;
 
-        const a = document.createElement("a");
-        a.href = "#inline-content";
-        a.id = proyecto.id;
-        a.classList.add("glightbox4", "boton-modal");
-        a.textContent = "Ver más";
-        a.setAttribute("data-array", array);
-
         galleryItemInfo.appendChild(h4);
         galleryItemInfo.appendChild(h5);
-        galleryItemInfo.appendChild(a);
 
         // Según yo aquí se comienzan a generar lso elementos. (Falta un row?)
         const colDiv = document.createElement("div");
@@ -136,33 +221,23 @@ insertaProyectos("proyectos_casas", proyectos_casas, "contenido-casas");
 insertaProyectos("proyectos_terrenos", proyectos_terrenos, "contenido-terrenos");
 
 /*********************** GLIGHTBOX ***********************/
-const customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
-    <div class="gloader visible"></div>
-    <div class="goverlay"></div>
-    <div class="gcontainer">
-    <div id="glightbox-slider" class="gslider"></div>
-    <button class="gnext gbtn d-none" tabindex="0" aria-label="Next" data-customattribute="example">{nextSVG}</button>
-    <button class="gprev gbtn d-none" tabindex="1" aria-label="Previous">{prevSVG}</button>
-    <button class="gclose gbtn" tabindex="2" aria-label="Close">{closeSVG}</button>
-</div>
-</div>`;
-
 /* Contenido de lightbox */
 // Función genérica para manejar el clic en cualquier botón
 const handleButtonClick = (event, array) => {
-    const modal = document.getElementById("inline-content");
-    const buttonId = event.target.id;
+    const modal = document.createElement("div");
+    modal.classList.add("gallery-modal");
+
+    /*const arrayName = button.getAttribute('data-array');*/
+    const buttonId = event.target;
+    const proyectoId = buttonId.getAttribute("id-proyecto");
 
     // Encuentra el índice según el id de cada elementos
-    const index = array.findIndex(proyecto => proyecto.id === buttonId);
+    const index = array.findIndex(proyecto => proyecto.id === proyectoId);
 
     // Si el índice no existe en el Array, entonces no existe ese elemento, por lo que detiene la ejecución y básicamente no hace nada el botón
     if (index === -1) {
         return;
     }
-
-    // Borra el contenido del 'modal'
-    modal.innerHTML = '';
 
     // Crear la estructura de la galería, los array
     // Primero crear el banner
@@ -177,12 +252,55 @@ const handleButtonClick = (event, array) => {
 
     galleryItemBanner.appendChild(img);
 
-    // Esto es para el titulo del proyecto y la galería del mismo
+    // Esto es para el titulo del proyecto, descripción y la galería del mismo
     const galleryItemInfo = document.createElement("div");
     galleryItemInfo.classList.add("gallery-item-info");
 
     const title = document.createElement("h2");
     title.textContent = array[index].nombre;
+
+    const ubicacion = document.createElement("p");
+    ubicacion.textContent = array[index].ubicacion;
+
+    const precio = document.createElement("p");
+    precio.textContent = array[index].precio;
+
+    // Las caracteristicas a resaltar
+    const highlights = document.createElement("ul");
+    if (array[index].lote) {
+        const lote = document.createElement("li");
+        lote.textContent = array[index].lote;
+        highlights.appendChild(lote);
+    }
+
+    if (array[index].construccion) {
+        const construccion = document.createElement("li");
+        construccion.textContent = array[index].construccion;
+        highlights.appendChild(construccion);
+    }
+
+    if (array[index].habitaciones) {
+        const habitaciones = document.createElement("li");
+        habitaciones.textContent = array[index].habitaciones;
+        highlights.appendChild(habitaciones);
+    }
+
+    if (array[index].banos) {
+        const banos = document.createElement("li");
+        banos.textContent = array[index].banos;
+        highlights.appendChild(banos);
+    }
+
+    // Empezamos a generar el body
+    const caracteristicas = document.createElement("ul");
+    array[index].caracteristicas.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        caracteristicas.appendChild(li);
+    });
+
+    const galeriaTitle = document.createElement("h3");
+    galeriaTitle.textContent = "Galería";
 
     const galleryItemsRow = document.createElement("div");
     galleryItemsRow.classList.add("row", "gy-3", "mt-3");
@@ -206,38 +324,57 @@ const handleButtonClick = (event, array) => {
         galleryItemsCol.appendChild(anchor);
         galleryItemsRow.appendChild(galleryItemsCol);
 
+        // IIFE - Immediately Invoked Function Expression) -> Se llaman así porque se invocan inmediatamente después de crearse.
+        anchor.addEventListener('click', (function(contador) { // En vez de añadir la acción directamente, se crea una función anónima la cual retorna otra función anónima, que será finalmente la que irá al listener. Esta función recibe de parametro el contador y lo "aisla" dentro de esta misma función.
+            return function(event) { // Esta función retornada es la que finalmente se vinculará al listener de cada anchor, en este caso, imagenes.
+                lightbox.goToSlide(contador); // Esto es del lightbox.
+            };
+        })(contador)); // Se invoca la función inmediatamente, es decir que se crea el listener con la función que creé. Esta es única y por eso contador mantiene su valor actual
+
         contador++;
     });
 
     galleryItemInfo.appendChild(title);
+    galleryItemInfo.appendChild(ubicacion);
+    galleryItemInfo.appendChild(precio);
+    galleryItemInfo.appendChild(highlights);
+    galleryItemInfo.appendChild(caracteristicas);
+    galleryItemInfo.appendChild(galeriaTitle);
     galleryItemInfo.appendChild(galleryItemsRow);
 
     // Pegar ambos elementos al 'modal'
     modal.appendChild(galleryItemBanner);
     modal.appendChild(galleryItemInfo);
 
-    // Lightbox del modal
-    const lightboxInlineIframe = GLightbox({
+    /* CONFIGURACIONES DE GLIGHTBOX */
+    // Esta parte es la del lightbox realmente
+    contadorLightbox = 0;
+    const lightbox = GLightbox({
         lightboxHTML: customLightboxHTML,
-        selector: `#${buttonId}`,
-        touchNavigation: false,
-        draggable: false,
-        slideEffect: false,
-        keyboardNavigation: false,
+        elements: [
+            {
+                'content': modal
+            },
+            ...array[index].urls.map(url => ({
+                'href': url,
+                'type': 'image',
+                'alt': `${array[index].nombre}-${contadorLightbox++}`
+            }))
+        ],
         preload: false,
     });
 
     // Destruye el 'modal' al cerrarse'
-    lightboxInlineIframe.on('close', () => {
-        lightboxInlineIframe.destroy();
+    lightbox.on('close', () => {
+        lightbox.destroy();
     });
 
     // abre el 'modal' al final de todo
-    lightboxInlineIframe.open();
+    lightbox.open();
 }
 
-// Obtén una referencia a todos los botones
-const buttons = document.querySelectorAll('.boton-modal');
+// Para abrir/construir los slides al hacer click en la imagen o el titulo
+const buttons = document.querySelectorAll('.btn-lightbox');
 // Agrega el evento de clic a cada botón
 buttons.forEach(button => {
     const arrayName = button.getAttribute('data-array');
@@ -246,7 +383,6 @@ buttons.forEach(button => {
         handleButtonClick(event, proyectos_arrays[arrayName]);
     });
 });
-
 
 // El listener hace que cada que se mueva la pantalla se ajuste el height de cada div
 window.addEventListener('resize', () => {
@@ -264,3 +400,10 @@ window.addEventListener('resize', () => {
 
 // Ejecuta el evento al comenzar
 window.dispatchEvent(new Event('resize'));
+
+// const backButton = document.querySelector('.gback');
+//     console.log(backButton)
+//     backButton.addEventListener('click', (e) => {
+//         lightbox.goToSlide(1); // Open the first slide (index 1)
+//     });
+
