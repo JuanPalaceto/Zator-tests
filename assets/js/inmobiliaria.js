@@ -31,7 +31,7 @@ const proyectos_casas = [
         ubicacion: "Viento Huasteco, esquina con calle Cdad. Victoria y Calle Estado de Veracruz, frente al área verde.",
         lote: "126.89m2",
         construccion: "106m2",
-        habitaciones: "2 habitaciones",
+        habitaciones: "3 habitaciones",
         banos: "2 baños",
         caracteristicas: [
             "3 habitaciones",
@@ -137,22 +137,6 @@ const proyectos_arrays = {
     proyectos_casas,
     proyectos_terrenos
 };
-
-// Para agregar el botón de back
-const customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
-    <div class="gloader visible"></div>
-    <div class="goverlay"></div>
-    <div class="gcontainer">
-    <div id="glightbox-slider" class="gslider"></div>
-    <button class="gnext gbtn" tabindex="0" aria-label="Next" data-customattribute="example">{nextSVG}</button>
-    <button class="gprev gbtn" tabindex="1" aria-label="Previous">{prevSVG}</button>
-    <button class="gclose gbtn" tabindex="3" aria-label="Close">{closeSVG}</button>
-    <button class="gback gbtn" tabindex="2" aria-label="Regresar">
-        <i class='bx bxs-chevron-left'></i>
-        Regresar
-    </button>
-</div>
-</div>`;
 
 // Para ajustar la altura
 // YA NO SE USA, CREO
@@ -261,49 +245,64 @@ const handleButtonClick = (event, array) => {
 
     const ubicacion = document.createElement("p");
     ubicacion.textContent = array[index].ubicacion;
+    ubicacion.classList.add("lightbox-ubi");
 
     const precio = document.createElement("p");
     precio.textContent = array[index].precio;
+    precio.classList.add("lightbox-precio");
 
     // Las caracteristicas a resaltar
     const highlights = document.createElement("ul");
+    highlights.classList.add("lightbox-highlights");
     if (array[index].lote) {
         const lote = document.createElement("li");
         lote.textContent = array[index].lote;
+        lote.classList.add("lightbox-highlights-area");
         highlights.appendChild(lote);
     }
 
     if (array[index].construccion) {
         const construccion = document.createElement("li");
         construccion.textContent = array[index].construccion;
+        construccion.classList.add("lightbox-highlights-building");
         highlights.appendChild(construccion);
     }
 
     if (array[index].habitaciones) {
         const habitaciones = document.createElement("li");
         habitaciones.textContent = array[index].habitaciones;
+        habitaciones.classList.add("lightbox-highlights-rooms");
         highlights.appendChild(habitaciones);
     }
 
     if (array[index].banos) {
         const banos = document.createElement("li");
         banos.textContent = array[index].banos;
+        banos.classList.add("lightbox-highlights-restrooms");
         highlights.appendChild(banos);
     }
 
     // Empezamos a generar el body
+    const contenedorCaracteristicas = document.createElement("div");
+    contenedorCaracteristicas.classList.add("lightbox-caracteristicas");
     const caracteristicas = document.createElement("ul");
     array[index].caracteristicas.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
         caracteristicas.appendChild(li);
     });
+    const descripcion = document.createElement("h3");
+    descripcion.textContent = "Descripción";
+    descripcion.classList.add("lightbox-subtitle")
+    
+    contenedorCaracteristicas.appendChild(caracteristicas);
 
     const galeriaTitle = document.createElement("h3");
     galeriaTitle.textContent = "Galería";
+    galeriaTitle.classList.add("lightbox-subtitle");
 
     const galleryItemsRow = document.createElement("div");
-    galleryItemsRow.classList.add("row", "gy-3", "mt-3");
+    galleryItemsRow.classList.add("row", "gy-3");
 
     // Esto es para generar la galería interna
     let contador = 1;
@@ -338,7 +337,8 @@ const handleButtonClick = (event, array) => {
     galleryItemInfo.appendChild(ubicacion);
     galleryItemInfo.appendChild(precio);
     galleryItemInfo.appendChild(highlights);
-    galleryItemInfo.appendChild(caracteristicas);
+    galleryItemInfo.appendChild(descripcion);
+    galleryItemInfo.appendChild(contenedorCaracteristicas);
     galleryItemInfo.appendChild(galeriaTitle);
     galleryItemInfo.appendChild(galleryItemsRow);
 
@@ -350,7 +350,6 @@ const handleButtonClick = (event, array) => {
     // Esta parte es la del lightbox realmente
     contadorLightbox = 0;
     const lightbox = GLightbox({
-        lightboxHTML: customLightboxHTML,
         elements: [
             {
                 'content': modal
@@ -400,10 +399,3 @@ window.addEventListener('resize', () => {
 
 // Ejecuta el evento al comenzar
 window.dispatchEvent(new Event('resize'));
-
-// const backButton = document.querySelector('.gback');
-//     console.log(backButton)
-//     backButton.addEventListener('click', (e) => {
-//         lightbox.goToSlide(1); // Open the first slide (index 1)
-//     });
-

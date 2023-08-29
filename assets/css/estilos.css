@@ -27,8 +27,7 @@
   z-index: 9999;
 }
 #preloader::before {
-  -webkit-animation: animate-preloader 1s linear infinite;
-          animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
   border: 6px solid #fff;
   border-radius: 50%;
   border-top-color: #a1a1a1;
@@ -38,15 +37,6 @@
   position: fixed;
   top: calc(50% - 30px);
   width: 60px;
-}
-
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes animate-preloader {
@@ -66,8 +56,7 @@
   }
 }
 [data-aos=zoom-imagen] {
-  -webkit-animation: zoom-imagen 4s ease-in;
-          animation: zoom-imagen 4s ease-in;
+  animation: zoom-imagen 4s ease-in;
 }
 
 /*--------------------------------------------------------------
@@ -105,7 +94,6 @@ body {
   transition: all 0.3s ease-in-out;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   width: 100%;
 }
@@ -600,16 +588,11 @@ section {
   width: 94px;
 }
 .about .play-btn::before {
-  -webkit-animation: pulsate-btn 2s;
-          animation: pulsate-btn 2s;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
-  -webkit-animation-direction: forwards;
-          animation-direction: forwards;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-          animation-timing-function: steps;
+  animation: pulsate-btn 2s;
+  animation-delay: 0s;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps;
   background: rgba(198, 16, 0, 0);
   border: 5px solid rgba(255, 255, 255, 0.85);
   border-radius: 50%;
@@ -636,8 +619,7 @@ section {
   z-index: 100;
 }
 .about .play-btn:hover::before {
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
   border: none;
   border-bottom: 10px solid transparent;
   border-left: 15px solid #fff;
@@ -1111,16 +1093,6 @@ footer .logo img {
 /*--------------------------------------------------------------
 # Keyframes
 --------------------------------------------------------------*/
-@-webkit-keyframes pulsate-btn {
-  0% {
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1, 1);
-    opacity: 0;
-  }
-}
 @keyframes pulsate-btn {
   0% {
     transform: scale(0.6, 0.6);
@@ -1129,14 +1101,6 @@ footer .logo img {
   100% {
     transform: scale(1, 1);
     opacity: 0;
-  }
-}
-@-webkit-keyframes zoom-imagen {
-  0% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 @keyframes zoom-imagen {
