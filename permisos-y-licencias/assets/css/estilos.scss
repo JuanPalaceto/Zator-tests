@@ -27,7 +27,7 @@
         & i {
             color: #6b6d70;
             // font-size: 8rem;
-            font-size: clamp(96px, 8vw, 144px);;
+            font-size: clamp(96px, 8vw, auto);;
             text-shadow: 0 0 10px #3e3e3f;
         }
     }
@@ -48,7 +48,7 @@
     & i {
         // color: #ffffff;
         // font-size: 8rem;
-        font-size: clamp(96px, 5vw, 144px);;
+        font-size: clamp(64px, 5vw, 144px);;
         text-shadow: 0 0 50px #857f7f;
     }
 }
@@ -74,6 +74,33 @@
                 min-width: 75px;
                 transform: translateX(-50%);
                 width: 25vw;
+            }
+        }
+    }
+    .lista-servicios {
+        position: relative;
+        & span {
+            padding-bottom: 0.5rem;
+        }
+        & .icon {
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            &-licencias {
+                right: 12%;
+            }
+            &-certificados {
+                left: 10%;
+            }
+            &-firma {
+                right: 8%;
+            }
+            &-ciudad {
+                left: 10%;
+            }
+            &-llave {
+                right: 10%;
             }
         }
     }
