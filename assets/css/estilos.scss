@@ -1043,6 +1043,9 @@ footer {
         display: block;
         text-align: center;
     }
+    .separador {
+        background-attachment: scroll;
+    }
 }
 @media (min-width: 1440px) {
     .gslide-media.gslide-inline {

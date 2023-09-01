@@ -83,24 +83,41 @@
             padding-bottom: 0.5rem;
         }
         & .icon {
-            opacity: 0.15;
+            opacity: 0.10;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             &-licencias {
+                display: none;
                 right: 12%;
             }
             &-certificados {
+                display: none;
                 left: 10%;
             }
             &-firma {
-                right: 8%;
+                // right: 8%;
+                opacity: 1;
+                top: 20%;
+                right: 10%;
             }
             &-ciudad {
+                display: none;
                 left: 10%;
             }
             &-llave {
+                display: none;
                 right: 10%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .lista-servicios {
+        & .icon {
+            &-firma {
+                display: none;
             }
         }
     }

@@ -64,24 +64,35 @@
     padding-bottom: 0.5rem;
   }
   .lista-servicios .icon {
-    opacity: 0.15;
+    opacity: 0.1;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
   .lista-servicios .icon-licencias {
+    display: none;
     right: 12%;
   }
   .lista-servicios .icon-certificados {
+    display: none;
     left: 10%;
   }
   .lista-servicios .icon-firma {
-    right: 8%;
+    opacity: 1;
+    top: 20%;
+    right: 10%;
   }
   .lista-servicios .icon-ciudad {
+    display: none;
     left: 10%;
   }
   .lista-servicios .icon-llave {
+    display: none;
     right: 10%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .lista-servicios .icon-firma {
+    display: none;
   }
 }/*# sourceMappingURL=estilos.css.map */
