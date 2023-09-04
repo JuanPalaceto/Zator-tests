@@ -515,6 +515,86 @@ section {
     overflow-y: hidden;
 }
 /*--------------------------------------------------------------
+# Banner
+--------------------------------------------------------------*/
+.landing {
+    align-items: center;
+    background-attachment: fixed;
+    background-image: url("../img/bg/bg-banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    position: relative;
+    &::before {
+        background-color: rgba(0, 0, 0, 0.8);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    & .contenedor-titulo {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 600px;
+        padding: 2rem 1.2rem !important;
+        position: relative;
+        text-align: center;
+        z-index: 2;
+        & h1 {
+            color: $secondary-color;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+        & p {
+            color: #b4b4b4;
+        }
+    }
+    & .contenedor-servicios {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        max-width: 1200px;
+    }
+    & .servicio {
+        align-items: center;
+        border: 1px solid $secondary-color;
+        color: $secondary-color;
+        flex-direction: column;
+        height: 170px;
+        gap: 1rem;
+        display: flex;
+        // justify-content: center;
+        max-width: 190px;
+        max-height: 170px;
+        padding: 30px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.3s ease-in-out all;
+        width: 190px;
+        z-index: 2;
+        &:hover {
+            border: 1px solid $rojo-zator;
+        }
+        & i {
+            color: $rojo-zator;
+        }
+        & h5 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+    }
+}
+/*--------------------------------------------------------------
 # Servicios
 --------------------------------------------------------------*/
 .services {
@@ -894,6 +974,16 @@ footer {
 /*--------------------------------------------------------------
 # Medias query
 --------------------------------------------------------------*/
+@media (max-width: 433px) {
+    .landing {
+        & .servicio {
+            justify-content: center;
+            max-height: 140px;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
 @media (max-width: 459px) {
     .gallery-modal {
         & .gallery-item-info {
@@ -1043,7 +1133,12 @@ footer {
         display: block;
         text-align: center;
     }
+    // Imagen de fondo de la sección separador
     .separador {
+        background-attachment: scroll;
+    }
+    // Imagen de fondo del banner
+    .landing {
         background-attachment: scroll;
     }
 }
